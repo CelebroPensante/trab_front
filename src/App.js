@@ -9,6 +9,10 @@ import DeleteProductForm from './DeleteProductForm';
 import LogoutForm from './LogoutForm';
 import CartForm from './CartForm';
 import ProtectedRoute from './ProtectedRoute';
+import SupplierForm from './SupplierAddForm';
+import SupplierEditForm from './SupplierEditForm';
+import SupplierDeleteForm from './SupplierDeleteForm';
+import SupplierListForm from './SupplierListForm';
 import ProductList from './ProductList';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown } from 'react-bootstrap';
@@ -53,6 +57,20 @@ function App() {
               <li>
                 <a className='nav-link btn' href="/landing">Home</a>
               </li>
+              <li className='nav-item'>
+                <Dropdown>
+                  <Dropdown.Toggle variant="link" id="dropdown-basic">
+                    Fornecedores
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item href="/createSupplier">Criar Fornecedor</Dropdown.Item>
+                    <Dropdown.Item href="/editSupplier">Editar Fornecedor</Dropdown.Item>
+                    <Dropdown.Item href="/deleteSupplier">Deletar Fornecedor</Dropdown.Item>
+                    <Dropdown.Item href="/listSupplier">Listar Fornecedores</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </li>
               <li>
                 <a className='nav-link btn' href="/cart">Carrinho</a>
               </li>
@@ -84,6 +102,10 @@ function App() {
             <Route path="/createProduct" element={<ProtectedRoute><CreateProductForm /></ProtectedRoute>} />
             <Route path="/editProduct" element={<ProtectedRoute><EditProductForm /></ProtectedRoute>} />
             <Route path="/deleteProduct" element={<ProtectedRoute><DeleteProductForm /></ProtectedRoute>} />
+            <Route path="/createSupplier" element={<ProtectedRoute><SupplierForm /></ProtectedRoute>} />
+            <Route path="/editSupplier" element={<ProtectedRoute><SupplierEditForm /></ProtectedRoute>} />
+            <Route path="/deleteSupplier" element={<ProtectedRoute><SupplierDeleteForm /></ProtectedRoute>} />
+            <Route path="/listSupplier" element={<ProtectedRoute><SupplierListForm /></ProtectedRoute>} />
           </Routes>
         </div>
       </div>
